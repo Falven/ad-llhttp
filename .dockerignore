@@ -3,4 +3,4 @@
 !package-lock.json
 !tsconfig.json
 !bin
-!src
+!ts-src

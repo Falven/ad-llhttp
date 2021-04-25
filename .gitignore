@@ -2,5 +2,8 @@ node_modules/
 npm-debug.log
 test/tmp/
 lib/
-build/
+src/*.a
+src/*.so
+src/native/*.o
+src/c/*.o
 release/

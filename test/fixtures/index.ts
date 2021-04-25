@@ -6,7 +6,7 @@ import {
 } from 'llparse-test-fixture';
 import * as path from 'path';
 
-import * as llhttp from '../../src/llhttp';
+import * as llhttp from '../../ts-src/llhttp';
 
 export type TestType = 'request' | 'response' | 'request-lenient-headers' |
   'request-lenient-chunked-length' | 'request-lenient-keep-alive' |

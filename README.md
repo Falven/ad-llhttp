@@ -1,3 +1,22 @@
+# ad-llhttp
+
+This is a port of [llparse][1] to [Arduino][10]
+
+Arduino has a very specific layout for projects to be used as libraries in their uC.
+While not a lot of code has been modified, the crucial project layout elements have been changed for the Arduino framework to be able to build and reference the project.
+
+## Changes
+
+* library.properties file added.
+* `src` and all references were changed to `ts-src`
+* `build` and `native` source/output files has been redirected to the src folder as that is where Arduino will be searching for source and build files to compile and link to user’s sketches.
+
+Because of the nature of the changes, generating/building the library is still accomplished the same as before.
+
+## Notes
+
+When a user imports a library into their sketch (from the Arduino IDE's "Sketch > Include Library" menu or the Arduino Web Editor's "Include" button), the default behavior (configurable via the library.properties includes field) is for an #include statement to be added for all header (.h) files in the src/ directory (but not its subfolders).
+
 # llhttp
 [![CI](https://github.com/nodejs/llhttp/workflows/CI/badge.svg)](https://github.com/nodejs/llhttp/actions?query=workflow%3ACI)
 
@@ -90,7 +109,7 @@ if (err == HPE_OK) {
           parser.reason);
 }
 ```
-For more information on API usage, please refer to [src/native/api.h](https://github.com/nodejs/llhttp/blob/master/src/native/api.h).
+For more information on API usage, please refer to [src/native/api.h](https://github.com/nodejs/llhttp/blob/master/ts-src/native/api.h).
 
 ---
 
@@ -143,3 +162,4 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 [7]: https://github.com/nodejs/node
 [8]: https://github.com/pallas/pyllhttp
 [9]: https://github.com/metabahn/llhttp
+[10]: https://www.arduino.cc/

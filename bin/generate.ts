@@ -4,14 +4,14 @@ import { LLParse } from 'llparse';
 import * as path from 'path';
 import * as semver from 'semver';
 
-import * as llhttp from '../src/llhttp';
+import * as llhttp from '../ts-src/llhttp';
 
 const pkgFile = path.join(__dirname, '..', 'package.json');
 const pkg = JSON.parse(fs.readFileSync(pkgFile).toString());
 
-const BUILD_DIR = path.join(__dirname, '..', 'build');
+const BUILD_DIR = path.join(__dirname, '..', 'src');
 const C_DIR = path.join(BUILD_DIR, 'c');
-const SRC_DIR = path.join(__dirname, '..', 'src');
+const SRC_DIR = path.join(__dirname, '..', 'ts-src');
 
 const C_FILE = path.join(C_DIR, 'llhttp.c');
 const HEADER_FILE = path.join(BUILD_DIR, 'llhttp.h');

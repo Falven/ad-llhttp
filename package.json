@@ -6,7 +6,7 @@
   "types": "lib/llhttp.d.ts",
   "files": [
     "lib",
-    "src"
+    "ts-src"
   ],
   "scripts": {
     "bench": "ts-node bench/",
@@ -17,7 +17,7 @@
     "wasm": "ts-node bin/build_wasm.ts",
     "clean": "rm -rf lib && rm -rf test/tmp",
     "prepare": "npm run clean && npm run build-ts",
-    "lint": "tslint -c tslint.json bin/*.ts src/*.ts src/**/*.ts test/*.ts test/**/*.ts",
+    "lint": "tslint -c tslint.json bin/*.ts ts-src/*.ts ts-src/**/*.ts test/*.ts test/**/*.ts",
     "mocha": "mocha --timeout=10000 -r ts-node/register/type-check --reporter progress test/*-test.ts",
     "test": "npm run mocha && npm run lint",
     "postversion": "TAG=`node -e \"process.stdout.write(require('./package').version)\"` make -B postversion"

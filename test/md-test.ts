@@ -5,7 +5,7 @@ import { Group, MDGator, Metadata, Test } from 'mdgator';
 import * as path from 'path';
 import * as vm from 'vm';
 
-import * as llhttp from '../src/llhttp';
+import * as llhttp from '../ts-src/llhttp';
 import { build, FixtureResult, TestType } from './fixtures';
 
 //
@@ -61,7 +61,7 @@ async function buildMode(mode: llhttp.HTTPMode, ty: TestType)
     prefix = 'http';
     extra = [
       '-DLLHTTP__TEST_HTTP',
-      path.join(__dirname, '..', 'src', 'native', 'http.c'),
+      path.join(__dirname, '..', 'ts-src', 'native', 'http.c'),
     ];
   }
 

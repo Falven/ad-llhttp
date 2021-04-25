@@ -2,14 +2,14 @@
  * A minimal Parser that mimicks a small fraction of the Node.js parser
  * API.
  * To run:
- * - `npm run build-wasm`
+ * - `npm run src-wasm`
  * - `npx ts-node examples/wasm.ts`
  */
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
-import * as constants from '../build/wasm/constants';
+import * as constants from '../src/wasm/constants';
 
-const bin = readFileSync(resolve(__dirname, '../build/wasm/llhttp.wasm'));
+const bin = readFileSync(resolve(__dirname, '../src/wasm/llhttp.wasm'));
 const mod = new WebAssembly.Module(bin);
 
 const REQUEST = constants.TYPE.REQUEST;

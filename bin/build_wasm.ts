@@ -5,12 +5,12 @@ import { join, resolve } from 'path';
 import { constants } from '..';
 
 const { WASI_ROOT } = process.env;
-const WASM_OUT = resolve(__dirname, '../build/wasm');
+const WASM_OUT = resolve(__dirname, '../src/wasm');
 const WASM_SRC = resolve(__dirname, '../');
 
 if (process.argv[2] === '--setup') {
   try {
-    mkdirSync(join(WASM_SRC, 'build'));
+    mkdirSync(join(WASM_SRC, 'src'));
     process.exit(0);
   } catch (error) {
     if (error.code !== 'EEXIST') {
@@ -66,9 +66,9 @@ execSync(`${WASI_ROOT}/bin/clang \
  -Wl,--export-table \
  -Wl,--export=malloc \
  -Wl,--export=free \
- ${join(WASM_SRC, 'build', 'c')}/*.c \
- ${join(WASM_SRC, 'src', 'native')}/*.c \
- -I${join(WASM_SRC, 'build')} \
+ ${join(WASM_SRC, 'src', 'c')}/*.c \
+ ${join(WASM_SRC, 'ts-src', 'native')}/*.c \
+ -I${join(WASM_SRC, 'src')} \
  -o ${join(WASM_OUT, 'llhttp.wasm')}`, { stdio: 'inherit' });
 
 // Copy constants for `.js` and `.ts` users.
